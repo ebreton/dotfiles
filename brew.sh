@@ -2,6 +2,10 @@
 
 # Install command-line tools using Homebrew.
 
+### ~~~ ###
+# for more on Mac: see http://sourabhbajaj.com/mac-setup/index.html
+### ~~~ ###
+
 # Make sure we’re using the latest Homebrew.
 brew update
 
@@ -37,15 +41,14 @@ brew install wget --with-iri
 # Install RingoJS and Narwhal.
 # Note that the order in which these are installed is important;
 # see http://git.io/brew-narwhal-ringo.
-brew install ringojs
-brew install narwhal
+# brew install ringojs
+# brew install narwhal
 
 # Install more recent versions of some macOS tools.
 brew install vim --with-override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
-brew install homebrew/php/php56 --with-gmp
 
 # Install font tools.
 brew tap bramstein/webfonttools
@@ -54,52 +57,97 @@ brew install sfnt2woff-zopfli
 brew install woff2
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
-brew install aircrack-ng
-brew install bfg
-brew install binutils
-brew install binwalk
-brew install cifer
-brew install dex2jar
-brew install dns2tcp
-brew install fcrackzip
-brew install foremost
-brew install hashpump
-brew install hydra
-brew install john
-brew install knock
-brew install netpbm
-brew install nmap
-brew install pngcheck
-brew install socat
-brew install sqlmap
-brew install tcpflow
-brew install tcpreplay
-brew install tcptrace
-brew install ucspi-tcp # `tcpserver` etc.
-brew install xpdf
-brew install xz
+# brew install aircrack-ng
+# brew install bfg
+# brew install binutils
+# brew install binwalk
+# brew install cifer
+# brew install dex2jar
+# brew install dns2tcp
+# brew install fcrackzip
+# brew install foremost
+# brew install hashpump
+# brew install hydra
+# brew install john
+# brew install knock
+# brew install netpbm
+# brew install nmap
+# brew install pngcheck
+# brew install socat
+# brew install sqlmap
+# brew install tcpflow
+# brew install tcpreplay
+# brew install tcptrace
+# brew install ucspi-tcp # `tcpserver` etc.
+# brew install xpdf
+# brew install xz
 
 # Install other useful binaries.
-brew install ack
+# brew install ack
 brew install dark-mode
-#brew install exiv2
+# brew install exiv2
 brew install git
 brew install git-lfs
+brew install hub
 brew install imagemagick --with-webp
-brew install lua
+# brew install lua
 brew install lynx
 brew install p7zip
+brew install libzip
 brew install pigz
 brew install pv
 brew install rename
-brew install rhino
+# brew install rhino
 brew install speedtest_cli
 brew install ssh-copy-id
 brew install testssl
 brew install tree
 brew install vbindiff
 brew install webkit2png
-brew install zopfli
+# brew install zopfli
+# brew install homebrew/php/php56 --with-gmp
+brew install go
+brew install ansible
+brew install consul
+brew install watch
+brew install unrar
+brew install heroku
+
+# from cask
+brew install gnupg gpg-agent pinentry-mac
+brew cask install gpgtools
+# Quick look plugins
+brew cask install qlcolorcode
+brew cask install qlstephen
+brew cask install qlmarkdown
+brew cask install quicklook-json
+brew cask install qlprettypatch
+brew cask install quicklook-csv
+brew cask install betterzipql
+brew cask install webpquicklook
+brew cask install suspicious-package
+# apps
+# brew cask install alfred
+# brew cask install 1password
+# brew cask install dropbox
+# brew cask install spectacle
+brew cask install android-file-transfer
+# brew cask install asepsis
+brew cask install appcleaner
+brew cask install caffeine
+brew cask install cheatsheet
+brew cask install doubletwist
+brew cask install google-chrome
+# brew cask install google-drive
+# brew cask install google-hangouts
+brew cask install flux
+# brew cask install latexian
+brew cask install sublime-text
+brew cask install superduper
+brew cask install totalfinder
+brew cask install transmission
+# brew cask install valentina-studio
+brew cask install vlc
 
 # Remove outdated versions from the cellar.
 brew cleanup
