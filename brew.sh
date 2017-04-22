@@ -114,7 +114,6 @@ brew install unrar
 brew install heroku
 
 # from cask
-brew install gnupg gpg-agent pinentry-mac
 brew cask install gpgtools
 # Quick look plugins
 brew cask install qlcolorcode
