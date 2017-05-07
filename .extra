@@ -1,0 +1,13 @@
+export DOCKING=~/Documents/bitbucket-repositories/my-bash-scripts
+export BACKUP="$DOCKING/backup"
+export SITES="my-new-wordpress"
+export REMOTE="core@fool.breton.ch"
+
+alias movebackup='rsync -av --update ~/prod-backup/* $BACKUP/'
+alias pullbackup='rsync -av --update $REMOTE:~/prod-backup ~/'
+alias pushbackup='rsync -av --update ~/prod-backup $REMOTE:~/'
+
+
+alias purge='find . -name *.pyc -exec rm -f {} \;'
+alias gc='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc:ro spotify/docker-gc'
+alias restartdocker='docker-compose down && docker-compose up -d && docker-compose logs --tail 10 -f'
