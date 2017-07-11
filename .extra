@@ -1,13 +1,39 @@
-export DOCKING=~/Documents/bitbucket-repositories/my-bash-scripts
+export DOCKING="~/git-repos/my-bash-scripts"
 export BACKUP="$DOCKING/backup"
-export SITES="my-new-wordpress"
-export REMOTE="core@fool.breton.ch"
+export SITES="gymnastique-energetique vadrouilleaucanada chilinousvoici bernardginisty cesaremongodi silviainstitut semencedamour atelier-magnolia annelaure-art"
+export SITES_AL="bernardginisty cesaremongodi silviainstitut semencedamour atelier-magnolia annelaure-art"
 
+export GMAIL_USERNAME='username'
+export GMAIL_APP_PASSWORD='password'
+export FROM_NAME='Manu'
+
+export MAIN_DOMAIN="umbre.breton.ch"
+export PHPMEMCACHEADMIN_DOMAIN=$MAIN_DOMAIN
+export PHPMYADMIN_DOMAIN=$MAIN_DOMAIN
+export PHPMYADMIN_PATH="phpmyadmin"
+export VIBRETON_DOMAIN="www.breton.ch"
+export VIBRETON_PATH="cv-virginie"
+export JEKYLL_DOMAIN="meteovoyage.com,www.meteovoyage.com"
+export IBIMUS_DOMAIN="ibimus.com,www.ibimus.com,static.ibimus.com,photos.ibimus.com"
+
+export GENGHIS_DOMAIN="genghis.meteovoyage.com"
+export FLASK_DOMAIN="app.meteovoyage.com"
+export NETDATA_DOMAIN="netdata.breton.ch"
+
+# Forwart GIT vars when ssh'ing
+export GIT_AUTHOR_NAME="ebreton"
+export GIT_AUTHOR_EMAIL="manu@ibimus.com"
+export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+
+alias gssh='ssh -A -o SendEnv="GIT*"'
+
+# BACKUP Shortcuts
 alias movebackup='rsync -av --update ~/prod-backup/* $BACKUP/'
 alias pullbackup='rsync -av --update $REMOTE:~/prod-backup ~/'
 alias pushbackup='rsync -av --update ~/prod-backup $REMOTE:~/'
 
-
+# cleaning, maintenance
 alias purge='find . -name *.pyc -exec rm -f {} \;'
-alias gc='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc:ro spotify/docker-gc'
-alias restartdocker='docker-compose down && docker-compose up -d && docker-compose logs --tail 10 -f'
+alias upup='sudo apt-get update && sudo apt-get upgrade'
+alias chall='sudo chown -R emb:www-data . && sudo chmod -R g+w . && sudo find . -type d -exec chmod g+s {} \;'
