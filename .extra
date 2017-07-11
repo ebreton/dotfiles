@@ -29,9 +29,10 @@ export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 alias gssh='ssh -A -o SendEnv="GIT*"'
 
 # BACKUP Shortcuts
-alias movebackup='rsync -av --update ~/prod-backup/* $BACKUP/'
-alias pullbackup='rsync -av --update $REMOTE:~/prod-backup ~/'
-alias pushbackup='rsync -av --update ~/prod-backup $REMOTE:~/'
+export REMOTE="umbre.breton.ch"
+alias pullbackup="rsync -av --update $REMOTE:$BACKUP $DOCKING"
+alias pushbackup="rsync -av --update $BACKUP $REMOTE:$DOCKING"
+alias syncfrom="rsync -av --update --delete $REMOTE:~/git-repos ~/"
 
 # cleaning, maintenance
 alias purge='find . -name *.pyc -exec rm -f {} \;'
