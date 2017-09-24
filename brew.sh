@@ -94,6 +94,7 @@ brew install screen
 brew install git
 brew install git-lfs
 brew install hub
+brew install hugo
 brew install imagemagick --with-webp
 # brew install lua
 brew install lynx
@@ -155,6 +156,7 @@ brew cask install iterm2
 brew cask install screenflick
 brew cask install spectacle
 brew cask install spotify
+brew cask install sketchup
 brew cask install skype
 brew cask install statusfy
 brew cask install sublime-text
