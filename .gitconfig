@@ -136,6 +136,8 @@
 
 [user]
 
+	name = ebreton
+	email = manu@ibimus.com
 	signingkey = D408B7A1
 
 [diff]
