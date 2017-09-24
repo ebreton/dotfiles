@@ -13,21 +13,23 @@ brew update
 brew upgrade
 
 # Install GNU core utilities (those that come with macOS are outdated).
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
-
 # Install some other useful utilities like `sponge`.
 brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
+
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+# Don’t forget to add `$(brew --prefix findutils)/libexec/gnubin` to `$PATH`.
+
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
+
 # Install Bash 4.
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
 brew install bash
-brew tap homebrew/versions
-brew install bash-completion2
+brew install bash-completion
 
 # Switch to using brew-installed bash as default shell
 if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
@@ -46,15 +48,18 @@ brew install wget --with-iri
 
 # Install more recent versions of some macOS tools.
 brew install vim --with-override-system-vi
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
+brew install grep
+brew install gnupg 
+brew install gpg-agent 
+brew install openssh
+brew install pinentry-mac
+brew install screen
 
 # Install font tools.
-brew tap bramstein/webfonttools
-brew install sfnt2woff
-brew install sfnt2woff-zopfli
-brew install woff2
+# brew tap bramstein/webfonttools
+# brew install sfnt2woff
+# brew install sfnt2woff-zopfli
+# brew install woff2
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 # brew install aircrack-ng
@@ -84,7 +89,7 @@ brew install woff2
 
 # Install other useful binaries.
 # brew install ack
-brew install dark-mode
+# brew install dark-mode
 # brew install exiv2
 brew install git
 brew install git-lfs
@@ -94,12 +99,13 @@ brew install imagemagick --with-webp
 brew install lynx
 brew install p7zip
 brew install libzip
-brew install pigz
-brew install pv
-brew install rename
+# brew install pigz
+# brew install pv
+brew install python3
+# brew install rename
 # brew install rhino
 brew install speedtest_cli
-brew install ssh-copy-id
+# brew install ssh-copy-id
 brew install testssl
 brew install tree
 brew install vbindiff
@@ -108,13 +114,13 @@ brew install webkit2png
 # brew install homebrew/php/php56 --with-gmp
 brew install go
 brew install ansible
-brew install consul
+# brew install consul
 brew install watch
 brew install unrar
 brew install heroku
 
 # from cask
-brew cask install gpgtools
+#brew cask install gpgtools
 # Quick look plugins
 brew cask install qlcolorcode
 brew cask install qlstephen
@@ -126,27 +132,40 @@ brew cask install betterzipql
 brew cask install webpquicklook
 brew cask install suspicious-package
 # apps
-# brew cask install alfred
-# brew cask install 1password
-# brew cask install dropbox
-# brew cask install spectacle
+brew cask install 1password
+brew cask install alfred
 brew cask install android-file-transfer
+# brew cask install appcleaner
 # brew cask install asepsis
-brew cask install appcleaner
-brew cask install caffeine
-brew cask install cheatsheet
-brew cask install doubletwist
+# brew cask install caffeine
+brew cask install carbon-copy-cloner
+brew cask install caskroom/drivers/synology-cloud-station-drive
+# brew cask install cheatsheet
+brew cask install docker
+# brew cask install doubletwist
+brew cask install dropbox
+brew cask install firefox
+# brew cask install flux
 brew cask install google-chrome
-# brew cask install google-drive
+brew cask install google-chrome-canary
+brew cask install google-earth-pro
 # brew cask install google-hangouts
-brew cask install flux
+brew cask install iterm2
 # brew cask install latexian
+brew cask install screenflick
+brew cask install spectacle
+brew cask install spotify
+brew cask install skype
+brew cask install statusfy
 brew cask install sublime-text
-brew cask install superduper
-brew cask install totalfinder
+# brew cask install superduper
+brew cask install telegram
+# brew cask install totalfinder
 brew cask install transmission
 # brew cask install valentina-studio
+brew cask install visual-studio-code-insiders
 brew cask install vlc
+brew cask install whatsapp
 
 # Remove outdated versions from the cellar.
 brew cleanup

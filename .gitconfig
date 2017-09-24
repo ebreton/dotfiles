@@ -134,6 +134,10 @@
 	# https://help.github.com/articles/signing-commits-using-gpg/
 	gpgsign = true
 
+[user]
+
+	signingkey = D408B7A1
+
 [diff]
 
 	# Detect copies as well as renames
