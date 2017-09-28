@@ -1,6 +1,7 @@
-// Placez vos paramètres dans ce fichier pour remplacer les paramètres par défaut
 {
-    "window.zoomLevel": 2,
+    "workbench.startupEditor": "newUntitledFile",
+
+    "window.zoomLevel": 1,
     "files.autoSave": "onWindowChange",
     "editor.renderWhitespace": "boundary",
     "editor.wordWrap": "wordWrapColumn",
@@ -10,7 +11,6 @@
         120
     ],
 
-    "git.confirmSync": false,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -21,23 +21,15 @@
         "**/*.pyc": true
     },
     "git.enableSmartCommit": true,
+    "git.confirmSync": false,
 
     "emmet.includeLanguages": {"vue-html": "html"},
     "emmet.excludeLanguages": [],
-    
-    "restructuredtext.builtDocumentationPath": "${workspaceRoot}/docs/_build/html",
-    "restructuredtext.confPath": "${workspaceRoot}/docs",
-    "restructuredtext.linter.run": "onSave",
+
+    "html.validate.styles": false,
 
     "python.venvPath": "/Users/emb/Documents/virtualenvs",
-    //"python.pythonPath": "/Users/emb/Documents/virtualenvs/geocoder/bin/python3.6",
-
     "python.unitTest.pyTestEnabled": true,
-    // "python.unitTest.pyTestArgs": [
-    //     "--cov=./",
-    //     "src"
-    // ],
-
     "python.formatting.autopep8Args": ["--max-line-length 120"],
 
     "python.linting.pylintEnabled": false,
