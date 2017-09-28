@@ -1,0 +1,48 @@
+// Placez vos paramètres dans ce fichier pour remplacer les paramètres par défaut
+{
+    "window.zoomLevel": 2,
+    "files.autoSave": "onWindowChange",
+    "editor.renderWhitespace": "boundary",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120,
+    "editor.rulers": [
+        100,
+        120
+    ],
+
+    "git.confirmSync": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    },
+    "git.enableSmartCommit": true,
+
+    "emmet.includeLanguages": {"vue-html": "html"},
+    "emmet.excludeLanguages": [],
+    
+    "restructuredtext.builtDocumentationPath": "${workspaceRoot}/docs/_build/html",
+    "restructuredtext.confPath": "${workspaceRoot}/docs",
+    "restructuredtext.linter.run": "onSave",
+
+    "python.venvPath": "/Users/emb/Documents/virtualenvs",
+    //"python.pythonPath": "/Users/emb/Documents/virtualenvs/geocoder/bin/python3.6",
+
+    "python.unitTest.pyTestEnabled": true,
+    // "python.unitTest.pyTestArgs": [
+    //     "--cov=./",
+    //     "src"
+    // ],
+
+    "python.formatting.autopep8Args": ["--max-line-length 120"],
+
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+    ]
+}
