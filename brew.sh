@@ -91,6 +91,7 @@ brew install screen
 # brew install ack
 # brew install dark-mode
 # brew install exiv2
+brew install flake8
 brew install git
 brew install git-lfs
 brew install hub
