@@ -101,6 +101,8 @@ brew install imagemagick --with-webp
 brew install lynx
 brew install p7zip
 brew install libzip
+brew install node
+brew install watchman
 # brew install pigz
 # brew install pv
 brew install python3
