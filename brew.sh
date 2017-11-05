@@ -90,7 +90,7 @@ brew install screen
 # Install other useful binaries.
 # brew install ack
 # brew install dark-mode
-# brew install exiv2
+brew install exiv2
 brew install flake8
 brew install git
 brew install git-lfs
@@ -139,14 +139,14 @@ brew cask install suspicious-package
 brew cask install 1password
 brew cask install alfred
 brew cask install android-file-transfer
-# brew cask install appcleaner
+brew cask install appcleaner
 # brew cask install asepsis
 # brew cask install caffeine
 brew cask install carbon-copy-cloner
 brew cask install caskroom/drivers/synology-cloud-station-drive
 # brew cask install cheatsheet
 brew cask install docker
-# brew cask install doubletwist
+brew cask install doubletwist
 brew cask install dropbox
 brew cask install firefox
 # brew cask install flux
@@ -167,7 +167,7 @@ brew cask install sublime-text
 brew cask install telegram
 # brew cask install totalfinder
 brew cask install transmission
-# brew cask install valentina-studio
+brew cask install valentina-studio
 brew cask install visual-studio-code-insiders
 brew cask install vlc
 brew cask install whatsapp
