@@ -171,6 +171,7 @@ brew cask install valentina-studio
 brew cask install visual-studio-code-insiders
 brew cask install vlc
 brew cask install whatsapp
+brew cask install yujitach-menumeters
 
 # Remove outdated versions from the cellar.
 brew cleanup
