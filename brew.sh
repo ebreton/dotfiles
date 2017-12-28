@@ -92,11 +92,12 @@ brew install screen
 # brew install dark-mode
 brew install exiv2
 brew install flake8
+brew install freetype
 brew install git
 brew install git-lfs
 brew install hub
 brew install hugo
-brew install imagemagick --with-webp
+brew install imagemagick@6 --with-liblqr --with-webp
 # brew install lua
 brew install lynx
 brew install p7zip
@@ -172,6 +173,7 @@ brew cask install visual-studio-code-insiders
 brew cask install vlc
 brew cask install whatsapp
 brew cask install yujitach-menumeters
+
 
 # Remove outdated versions from the cellar.
 brew cleanup
