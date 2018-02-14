@@ -171,6 +171,7 @@ brew cask install transmission
 brew cask install visual-studio-code-insiders
 brew cask install vlc
 brew cask install whatsapp
+brew cask install zoomus
 
 # Remove outdated versions from the cellar.
 brew cleanup
