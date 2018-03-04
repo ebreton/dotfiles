@@ -157,6 +157,7 @@ brew cask install google-earth-pro
 # brew cask install google-hangouts
 brew cask install iterm2
 # brew cask install latexian
+brew cask install meld
 brew cask install screenflick
 brew cask install spectacle
 brew cask install spotify
