@@ -16,6 +16,8 @@ export GIT_COMMITTER_NAME=${GIT_AUTHOR_NAME}
 export GIT_COMMITTER_EMAIL=${GIT_AUTHOR_EMAIL}
 alias gssh='ssh -A -o SendEnv="GIT*"'
 
+# removing 'git diff' that overrides the real function 'diff'
+unset -f diff
 
 # sync with Wordpresses
 export DOCKING=~/git-repos/my-bash-scripts
