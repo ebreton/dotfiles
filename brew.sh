@@ -125,7 +125,6 @@ brew install unrar
 brew install heroku
 
 # from cask
-#brew cask install gpgtools
 # Quick look plugins
 brew cask install betterzipql
 brew cask install qlcolorcode
@@ -156,6 +155,7 @@ brew cask install google-chrome
 brew cask install google-chrome-canary
 brew cask install google-earth-pro
 # brew cask install google-hangouts
+brew cask install gpg-suite
 brew cask install iterm2
 # brew cask install latexian
 brew cask install meld
