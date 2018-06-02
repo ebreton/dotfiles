@@ -98,6 +98,7 @@ brew install git-lfs
 brew install hub
 brew install hugo
 brew install imagemagick@6 --with-liblqr --with-webp
+brew install jq
 # brew install lua
 brew install lynx
 brew install p7zip
