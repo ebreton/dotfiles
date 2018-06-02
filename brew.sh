@@ -126,7 +126,6 @@ brew install heroku
 
 # from cask
 # Quick look plugins
-brew cask install betterzipql
 brew cask install qlcolorcode
 brew cask install qlmarkdown
 brew cask install qlprettypatch
@@ -141,9 +140,9 @@ brew cask install alfred
 brew cask install android-file-transfer
 brew cask install appcleaner
 # brew cask install asepsis
-# brew cask install caffeine
+brew cask install caffeine
 brew cask install carbon-copy-cloner
-brew cask install caskroom/drivers/synology-cloud-station-drive
+brew cask install synology-drive
 brew cask install ccleaner
 brew cask install cheatsheet
 brew cask install docker
@@ -151,8 +150,8 @@ brew cask install doubletwist
 brew cask install dropbox
 brew cask install firefox
 # brew cask install flux
+brew cask install ghost
 brew cask install google-chrome
-brew cask install google-chrome-canary
 brew cask install google-earth-pro
 # brew cask install google-hangouts
 brew cask install gpg-suite
@@ -172,7 +171,7 @@ brew cask install telegram
 # brew cask install totalfinder
 brew cask install transmission
 brew cask install valentina-studio
-brew cask install visual-studio-code-insiders
+brew cask install visual-studio-code
 brew cask install vlc
 brew cask install whatsapp
 brew cask install zoomus
