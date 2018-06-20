@@ -522,6 +522,9 @@ defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
 # defaults write com.apple.Safari WebKitJavaEnabled -bool false
 # defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
 
+# Download PDFs instead of opening them
+defaults write com.apple.Safari WebKitOmitPDFSupport -bool true
+
 # Block pop-up windows
 # defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
 # defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
