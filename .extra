@@ -1,5 +1,5 @@
 # cleaning up
-alias chall="sudo chown -R emb:www-data . && sudo chmod -R g+w . && find . -type d -exec chmod g+s {} \;"
+alias chall="sudo chown -R $USER:$USER . && sudo chmod -R g+w . && find . -type d -exec chmod g+s {} \;"
 alias purge="find . -name *.pyc -exec rm -f {} \;"
 
 
@@ -18,31 +18,3 @@ alias gssh='ssh -A -o SendEnv="GIT*"'
 
 # removing 'git diff' that overrides the real function 'diff'
 unset -f diff
-
-# sync with Wordpresses
-export DOCKING=~/git-repos/my-bash-scripts
-export BACKUP=${DOCKING}/backup
-export REMOTE=hobb.breton.ch:/home/emb/git-repos/my-bash-scripts/backup
-
-alias pullbackup="rsync -av --update ${REMOTE}/ ${BACKUP}"
-alias pushbackup="rsync -av --update ${BACKUP}/ ${REMOTE}"
-
-
-# C2C environment
-export WP_ENV=ebreton
-alias managwp='WP_ENV=subdomains && echo ssh -A -o SendEnv=WP_ENV www-data@ssh-wwp.epfl.ch -p 32222 && ssh -A -o SendEnv=WP_ENV www-data@ssh-wwp.epfl.ch -p 32222'
-alias devwp='WP_ENV=ebreton && echo ssh -A -o SendEnv=WP_ENV www-data@test-ssh-wwp.epfl.ch -p 32222 && ssh -A -o SendEnv=WP_ENV www-data@test-ssh-wwp.epfl.ch -p 32222'
-
-# virtualvenvs
-export VIRTUALENV_ROOT=~/Documents/virtualenvs
-alias sourceenv="set -o allexport && source .env && set +o allexport"
-
-alias vcrypto="cd ~/git-repos/cryptokitties && sourceenv && pipenv shell"
-alias vuadv2="source ${VIRTUALENV_ROOT}/uadv2/bin/activate && cd ~/git-repos/container-uadv-v2 \
-    && export PYTHONPATH=${PWD}/web && sourceenv"
-alias vgeocoder="source ${VIRTUALENV_ROOT}/geocoder/bin/activate && cd ~/git-repos/geocoder \
-    && export PYTHONPATH=${PWD} && sourceenv"
-alias vgeocoder2.7="source ${VIRTUALENV_ROOT}/geocoder2.7/bin/activate && cd ~/git-repos/geocoder \
-    && export PYTHONPATH=${PWD} && sourceenv"
-alias vjahia2wp="source ${VIRTUALENV_ROOT}/jahia2wp/bin/activate && cd ~/git-repos/jahia2wp/src \
-    && export PYTHONPATH=${PWD}/src"
