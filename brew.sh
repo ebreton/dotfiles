@@ -55,6 +55,10 @@ brew install openssh
 brew install pinentry-mac
 brew install screen
 
+# Install cloud foundery -> https://docs.developer.swisscom.com/cf-cli/install-go-cli.html
+brew tap cloudfoundry/tap
+brew install cf-cli
+
 # Install font tools.
 # brew tap bramstein/webfonttools
 # brew install sfnt2woff
