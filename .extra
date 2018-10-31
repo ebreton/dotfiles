@@ -1,7 +1,7 @@
 # cleaning up
 alias chall="sudo chown -R $USER:$USER . && sudo chmod -R g+w . && find . -type d -exec chmod g+s {} \;"
 alias purge="find . -name *.pyc -exec rm -f {} \;"
-
+alias sourceenv="set -o allexport && source .env && set +o allexport"
 
 # using gmail SMTP
 export GMAIL_USERNAME=email

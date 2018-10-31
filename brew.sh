@@ -137,18 +137,18 @@ brew cask install qlprettypatch
 brew cask install qlstephen
 brew cask install quicklook-csv
 brew cask install quicklook-json
-brew cask install suspicious-package
 brew cask install webpquicklook
 # apps
 brew cask install 1password
 brew cask install alfred
 brew cask install anaconda
 brew cask install android-file-transfer
+brew cask install android-studio
 brew cask install appcleaner
 # brew cask install asepsis
 brew cask install caffeine
 brew cask install carbon-copy-cloner
-brew cask install synology-drive
+# brew cask install synology-drive
 brew cask install ccleaner
 brew cask install cheatsheet
 brew cask install docker
@@ -161,17 +161,19 @@ brew cask install google-chrome
 brew cask install google-earth-pro
 # brew cask install google-hangouts
 brew cask install gpg-suite
+brew cask install insomnia
 brew cask install iterm2
 # brew cask install latexian
 brew cask install meld
-brew cask install onedrive
+# brew cask install onedrive
 brew cask install screenflick
-brew cask install spectacle
-brew cask install spotify
 brew cask install sketchup
 brew cask install skype
+brew cask install spectacle
+brew cask install spotify
 brew cask install statusfy
-brew cask install sublime-text
+# brew cask install sublime-text
+brew cask install suspicious-package
 # brew cask install superduper
 brew cask install telegram
 # brew cask install totalfinder
