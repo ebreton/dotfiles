@@ -111,7 +111,7 @@ brew install node
 brew install watchman
 # brew install pigz
 # brew install pv
-brew install python3
+brew install python3 --with-tcl-tk
 # brew install rename
 # brew install rhino
 brew install speedtest_cli
