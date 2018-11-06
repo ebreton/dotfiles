@@ -146,7 +146,7 @@ brew cask install webpquicklook
 # apps
 brew cask install 1password
 brew cask install alfred
-brew cask install anaconda
+# brew cask install anaconda
 brew cask install android-file-transfer
 brew cask install android-studio
 brew cask install appcleaner
