@@ -111,7 +111,11 @@ brew install node
 brew install watchman
 # brew install pigz
 # brew install pv
-brew install python3 --with-tcl-tk
+
+# to install latest python 3
+brew install python --with-tcl-tk
+# to install python 3.6.5
+brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/e128fa1bce3377de32cbf11bd8e46f7334dfd7a6/Formula/python.rb --with-tcl-tk
 # brew install rename
 # brew install rhino
 brew install speedtest_cli
