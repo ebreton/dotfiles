@@ -135,61 +135,60 @@ brew install unrar
 brew install heroku
 
 # from cask
-# Quick look plugins
-brew cask install qlcolorcode
-brew cask install qlmarkdown
-brew cask install qlprettypatch
-brew cask install qlstephen
-brew cask install quicklook-csv
-brew cask install quicklook-json
-brew cask install webpquicklook
-# apps
-brew cask install 1password
-brew cask install alfred
+brew cask install 1password              # password manager
+brew cask install alfred                 # spotlight replacement
 # brew cask install anaconda
-brew cask install android-file-transfer
-brew cask install android-studio
+brew cask install android-file-transfer  # file sync for android phones
+brew cask install android-studio         # dev editor
 brew cask install appcleaner
 # brew cask install asepsis
-brew cask install caffeine
-brew cask install carbon-copy-cloner
+brew cask install caffeine               # activate/deactivate screensaver from menu bar
+brew cask install carbon-copy-cloner     # backup manager
 # brew cask install synology-drive
 brew cask install ccleaner
-brew cask install cheatsheet
-brew cask install docker
+brew cask install cheatsheet             # display all available shortcuts within context
+brew cask install docker                 # container manager
 brew cask install doubletwist
-brew cask install dropbox
-brew cask install evernote
-brew cask install firefox
+brew cask install dropbox                # file sync
+brew cask install evernote               # note manager
+brew cask install firefox                # web browser
 # brew cask install flux
-brew cask install ghost
-brew cask install google-chrome
-brew cask install google-earth-pro
+brew cask install ghost                  # blog editor
+brew cask install google-chrome          # web browser
+brew cask install google-earth-pro       # from google
 # brew cask install google-hangouts
-brew cask install gpg-suite
-brew cask install insomnia
-brew cask install iterm2
+brew cask install gpg-suite              # GPG keys tool box
+brew cask install insomnia               # HTTP request (API) editor
+brew cask install iterm2                 # terminal
 # brew cask install latexian
-brew cask install meld
+brew cask install meld                   # file/dir diff
 # brew cask install onedrive
-brew cask install screenflick
-brew cask install sketchup
-brew cask install skype
-brew cask install spectacle
-brew cask install spotify
-brew cask install statusfy
+brew cask install qlcolorcode            # enhance quicklook display
+brew cask install qlmarkdown             # enhance quicklook display
+brew cask install qlprettypatch          # enhance quicklook display
+brew cask install qlstephen              # enhance quicklook display
+brew cask install quicklook-csv          # enhance quicklook display
+brew cask install quicklook-json         # enhance quicklook display
+brew cask install screenflick            # screen+sound recorder
+brew cask install sketchup               # 3D editor
+brew cask install skype                  # conference manager
+brew cask install spectacle              # shortcut to resize/move windows
+brew cask install spotify                # audio player
+brew cask install statusfy               # songs on-play by spotify dispayed in menu bar
 # brew cask install sublime-text
 brew cask install suspicious-package
 # brew cask install superduper
-brew cask install telegram
+brew cask install telegram               # conference
 # brew cask install totalfinder
-brew cask install transmission
-brew cask install valentina-studio
-brew cask install visual-studio-code
-brew cask install vlc
-brew cask install whatsapp
-brew cask install zoomus
-brew cask install yujitach-menumeters
+brew cask install transmission           # bit-torrent
+brew cask install valentina-studio       # video editor
+brew cask install visual-studio-code     # dev editor
+brew cask install vlc                    # video reader
+brew cask install whatsapp               # what's app client
+brew cask install webpquicklook          # enhance quicklook display
+brew cask install x-lite                 # voice over IP client
+brew cask install zoomus                 # conference client
+brew cask install yujitach-menumeters    # CPU/RAM/IO indicators in menu bar
 
 # Remove outdated versions from the cellar.
 brew cleanup
