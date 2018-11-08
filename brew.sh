@@ -159,6 +159,7 @@ brew cask install cheatsheet
 brew cask install docker
 brew cask install doubletwist
 brew cask install dropbox
+brew cask install evernote
 brew cask install firefox
 # brew cask install flux
 brew cask install ghost
