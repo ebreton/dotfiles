@@ -115,10 +115,8 @@ brew install p7zip
 # brew install pv
 # to install latest python 3
 brew install python --with-tcl-tk
-# to install python 3.6.5
-# brew unlink python
-# brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/e128fa1bce3377de32cbf11bd8e46f7334dfd7a6/Formula/python.rb --with-tcl-tk
-# brew pin python
+# WARNING: there are some known issues with pyenv, check following wiki page to resolve them:
+# https://github.com/pyenv/pyenv/wiki/Common-build-problems
 brew install pyenv
 # brew install rename
 # brew install rhino
