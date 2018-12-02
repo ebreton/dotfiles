@@ -116,7 +116,8 @@ brew install p7zip
 # to install latest python 3
 brew install python --with-tcl-tk
 # WARNING: there are some known issues with pyenv, check following wiki page to resolve them:
-# https://github.com/pyenv/pyenv/wiki/Common-build-problems
+# https://github.com/pyenv/pyenv/wiki/Common-build-problems, e.g:
+# PYTHON_CONFIGURE_OPTS="--with-tcl-tk" CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install 3.6.7
 brew install pyenv
 # brew install rename
 # brew install rhino
