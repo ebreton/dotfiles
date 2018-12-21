@@ -93,27 +93,31 @@ brew install cf-cli
 
 # Install other useful binaries.
 # brew install ack
-# brew install dark-mode
+brew install ansible
+# brew install consul
 brew install exiv2
-brew install flake8
 brew install freetype
 brew install git
 brew install git-lfs
 brew install hub
 brew install hugo
+brew install go
+# brew install homebrew/php/php56 --with-gmp
+brew install heroku
 brew install imagemagick@6 --with-liblqr --with-webp
 brew install jq
 # brew install lua
 brew install lynx
-brew install p7zip
 brew install libzip
 brew install node
-brew install watchman
+brew install p7zip
 # brew install pigz
 # brew install pv
-
 # to install latest python 3
 brew install python --with-tcl-tk
+# WARNING: there are some known issues with pyenv, check following wiki page to resolve them:
+# https://github.com/pyenv/pyenv/wiki/Common-build-problems, e.g:
+# PYTHON_CONFIGURE_OPTS="--with-tcl-tk" CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install 3.6.7
 brew install pyenv
 # brew install rename
 # brew install rhino
@@ -121,16 +125,13 @@ brew install speedtest_cli
 # brew install ssh-copy-id
 brew install testssl
 brew install tree
+brew install unrar
 brew install vbindiff
 brew install webkit2png
-# brew install zopfli
-# brew install homebrew/php/php56 --with-gmp
-brew install go
-brew install ansible
-# brew install consul
 brew install watch
-brew install unrar
-brew install heroku
+brew install watchman
+# brew install zopfli
+brew install zlib
 
 # from cask
 brew cask install 1password              # password manager
