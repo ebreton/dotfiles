@@ -13,6 +13,8 @@ alias pipupdate="pip install --upgrade pip && pip freeze --local | grep -v '^\-e
 alias pip3update="pip3 install --upgrade pip && pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
 alias devupdate='npm install npm -g; npm update -g;sudo gem update --system; sudo gem update; sudo gem cleanup'
 
+alias pyenv='CFLAGS="-I$(brew --prefix zlib)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix zlib)/lib" pyenv'
+
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
