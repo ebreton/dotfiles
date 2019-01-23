@@ -89,7 +89,6 @@ brew install cf-cli
 # brew install tcptrace
 # brew install ucspi-tcp # `tcpserver` etc.
 # brew install xpdf
-# brew install xz
 
 # Install other useful binaries.
 # brew install ack
@@ -114,13 +113,15 @@ brew install p7zip
 # brew install pigz
 # brew install pv
 # to install latest python 3
-brew install python --with-tcl-tk
+brew install python
 # WARNING: there are some known issues with pyenv, check following wiki page to resolve them:
 # https://github.com/pyenv/pyenv/wiki/Common-build-problems, e.g:
 brew install pyenv
 # PYTHON_CONFIGURE_OPTS="--with-tcl-tk" CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install 3.6.8
 # CFLAGS="-I$(brew --prefix zlib)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix zlib)/lib" pyenv install 3.6.8
 
+# dependency for pyenv
+brew install readline
 # brew install rename
 # brew install rhino
 brew install speedtest_cli
@@ -132,6 +133,8 @@ brew install vbindiff
 brew install webkit2png
 brew install watch
 brew install watchman
+# dependency for pyenv
+brew install xz
 # brew install zopfli
 brew install zlib
 
