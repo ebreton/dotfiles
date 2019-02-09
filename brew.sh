@@ -92,24 +92,25 @@ brew install cf-cli
 
 # Install other useful binaries.
 # brew install ack
-brew install ansible
+brew install ansible                    # IT automation
 # brew install consul
-brew install exiv2
-brew install freetype
-brew install git
-brew install git-lfs
-brew install hub
-brew install hugo
-brew install go
+brew install enca                       # to guess a file encoding
+brew install exiv2                      # image metadata library and tool
+brew install freetype                   # Software library to render fonts
+brew install git                        # Distributed revision control system
+brew install git-lfs                    # Git extension for versioning large files
+brew install hub                        # CLI for github
+brew install hugo                       # static file CMS
+brew install go                         # programmation language
 # brew install homebrew/php/php56 --with-gmp
-brew install heroku
+brew install heroku                     # CLI for heroku
 brew install imagemagick@6 --with-liblqr --with-webp
-brew install jq
+brew install jq                         # CLI json processor
 # brew install lua
-brew install lynx
-brew install libzip
-brew install node
-brew install p7zip
+brew install lynx                       # CLI web browser
+brew install libzip                     # C library for reading, creating, and modifying zip archives
+brew install node                       # Platform built on V8 to build network applications
+brew install p7zip                      # 7-Zip (high compression file archiver) implementation
 # brew install pigz
 # brew install pv
 # to install latest python 3
