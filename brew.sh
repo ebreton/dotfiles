@@ -152,6 +152,7 @@ brew cask install carbon-copy-cloner     # backup manager
 # brew cask install synology-drive
 brew cask install ccleaner
 brew cask install cheatsheet             # display all available shortcuts within context
+brew cask install db-browser-for-sqlite  # Browser for SQLite DB files
 brew cask install docker                 # container manager
 brew cask install doubletwist
 brew cask install dropbox                # file sync
