@@ -120,7 +120,6 @@ brew install python
 brew install pyenv
 # PYTHON_CONFIGURE_OPTS="--with-tcl-tk" CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install 3.6.8
 # CFLAGS="-I$(brew --prefix zlib)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix zlib)/lib" pyenv install 3.6.8
-
 # dependency for pyenv
 brew install readline
 # brew install rename
@@ -138,6 +137,12 @@ brew install watchman
 brew install xz
 # brew install zopfli
 brew install zlib
+
+# dependencies for flutter
+brew install --HEAD usbmuxd
+brew install --HEAD libimobiledevice
+brew install ideviceinstaller ios-deploy cocoapods
+pod setup
 
 # from cask
 brew cask install 1password              # password manager
