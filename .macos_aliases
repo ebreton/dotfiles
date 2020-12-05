@@ -2,17 +2,10 @@
 
 #APPLE RELATED aliases
 
-alias db="cd ~/Documents/Dropbox"
-alias dl="cd ~/Downloads"
-alias dk="cd ~/Desktop"
-alias g="cd ~/Documents/git-repos"
-
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew cask upgrade'
-alias pipupdate="pip install --upgrade pip && pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
-alias pip3update="pip3 install --upgrade pip && pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
-alias devupdate='npm install npm -g; npm update -g;sudo gem update --system; sudo gem update; sudo gem cleanup'
 
+# make sure new pyenv are installed with proper options
 alias pyenvinstall='echo "PYTHON_CONFIGURE_OPTS=\"--with-tcl-tk\" CFLAGS=\"-I$(brew --prefix zlib)/include -I$(brew --prefix tcl-tk)/include" LDFLAGS=\"-L$(brew --prefix zlib)/lib -L$(brew --prefix tcl-tk)/lib\" pyenv install ..." && PYTHON_CONFIGURE_OPTS="--with-tcl-tk" CFLAGS="-I$(brew --prefix zlib)/include -I$(brew --prefix tcl-tk)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix zlib)/lib -L$(brew --prefix tcl-tk)/lib" pyenv install'
 
 # Recursively delete `.DS_Store` files
