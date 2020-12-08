@@ -5,9 +5,6 @@
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew cask upgrade'
 
-# make sure new pyenv are installed with proper options
-alias pyenvinstall='echo "PYTHON_CONFIGURE_OPTS=\"--with-tcl-tk\" CFLAGS=\"-I$(brew --prefix zlib)/include -I$(brew --prefix tcl-tk)/include" LDFLAGS=\"-L$(brew --prefix zlib)/lib -L$(brew --prefix tcl-tk)/lib\" pyenv install ..." && PYTHON_CONFIGURE_OPTS="--with-tcl-tk" CFLAGS="-I$(brew --prefix zlib)/include -I$(brew --prefix tcl-tk)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix zlib)/lib -L$(brew --prefix tcl-tk)/lib" pyenv install'
-
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
