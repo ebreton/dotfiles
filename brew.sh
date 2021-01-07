@@ -106,6 +106,7 @@ brew install git                        # Distributed revision control system
 # brew install heroku                     # CLI for heroku
 # brew install imagemagick@6 --with-liblqr --with-webp
 # brew install jq                         # CLI json processor
+brew install libmagic                   # lib for image manipulation
 # brew install lua
 # brew install lynx                       # CLI web browser
 # brew install libzip                     # C library for reading, creating, and modifying zip archives
@@ -136,7 +137,9 @@ brew install unrar
 # dependency for pyenv
 # brew install xz
 # brew install zopfli
-# brew install zlib
+brew install zlib
+# dependency for pillow
+brew install libtiff libjpeg webp little-cms2
 
 # dependencies for flutter
 # brew install --HEAD usbmuxd

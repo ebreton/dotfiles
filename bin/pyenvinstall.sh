@@ -50,8 +50,14 @@ for version in "$@"
 # for more explanation on "@*" see
 # https://stackoverflow.com/questions/12314451
 do 
+    export PATH="$(brew --prefix tcl-tk)/bin:$PATH"
+    export CPPFLAGS="-I$(brew --prefix tcl-tk)/include";
     export CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include";
-    export LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(xcrun --show-sdk-path)/usr/lib";
+    export LDFLAGS="-L$(brew --prefix tcl-tk)/lib -L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(xcrun --show-sdk-path)/usr/lib";
+    export PKG_CONFIG_PATH="$(brew --prefix tcl-tk)/lib/pkgconfig"
+    export PYTHON_CONFIGURE_OPTS="--with-tcltk-includes='-I$(brew --prefix tcl-tk)/include' \
+                                --with-tcltk-libs='-L$(brew --prefix tcl-tk)/lib -ltcl8.6 -ltk8.6'"
+
     result=$(vercomp $version "3.8.4")
     case $result in
         "=") pyenv install "$version" ;;
@@ -61,6 +67,6 @@ do
 done
 
 # if any errors occur mentionning zlib, replace LDFLAGS line with the 3 following ones:
-    # export LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(xcrun --show-sdk-path)/usr/lib -L/usr/local/opt/zlib/lib"
-    # export CPPFLAGS="-I/usr/local/opt/zlib/include"
-    # export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+# export LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(xcrun --show-sdk-path)/usr/lib -L/usr/local/opt/zlib/lib"
+# export CPPFLAGS="-I/usr/local/opt/zlib/include"
+# export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
