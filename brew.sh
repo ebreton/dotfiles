@@ -149,6 +149,7 @@ brew install libtiff libjpeg webp little-cms2
 
 # from cask
 brew cask install 1password              # password manager
+brew cask install 1password-cli          # password manager command line interface
 brew cask install alfred                 # spotlight replacement
 # brew cask install anaconda
 brew cask install android-file-transfer  # file sync for android phones
@@ -173,13 +174,17 @@ brew cask install firefox                # web browser
 brew cask install google-chrome          # web browser
 # brew cask install google-earth-pro       # from google
 # brew cask install google-hangouts
-# brew cask install gpg-suite              # GPG keys tool box
+# brew cask install gpg-suite             # GPG keys tool box
 brew cask install insomnia               # HTTP request (API) editor
 brew cask install iterm2                 # terminal
+brew cask install jq                     # json command line parser/formatter
 # brew cask install latexian
+# brew cask install licecap               # animated gif maker from screen
 brew cask install meld                   # file/dir diff
 # brew cask install onedrive
 brew cask install protonvpn                # VPN
+brew install xquartz                       # Requirement for x2goclient
+brew install x2goclient                    # fork of NoMachine for remote display (on units)
 # brew cask install qlcolorcode            # enhance quicklook display
 # brew cask install qlmarkdown             # enhance quicklook display
 # brew cask install qlprettypatch          # enhance quicklook display
