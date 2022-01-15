@@ -148,71 +148,71 @@ brew install libtiff libjpeg webp little-cms2
 # pod setup
 
 # from cask
-brew cask install 1password              # password manager
-brew cask install 1password-cli          # password manager command line interface
-brew cask install alfred                 # spotlight replacement
-# brew cask install anaconda
-brew cask install android-file-transfer  # file sync for android phones
-# brew cask install android-studio         # dev editor
-# brew cask install appcleaner
-# brew cask install asepsis
-brew cask install caffeine               # activate/deactivate screensaver from menu bar
-# brew cask install carbon-copy-cloner     # backup manager
-# brew cask install synology-drive
-# brew cask install ccleaner
-# brew cask install cheatsheet             # display all available shortcuts within context
-brew cask install cleanmymac             # mac OS maintenance tool
-# brew cask install db-browser-for-sqlite  # Browser for SQLite DB files
-brew cask install docker                 # container manager
-# brew cask install doubletwist
-brew cask install drawio                 # offline version of draw.io
-brew cask install dropbox                # file sync
-# brew cask install evernote               # note manager
-brew cask install firefox                # web browser
-# brew cask install flux
-# brew cask install ghost                  # blog editor
-brew cask install google-chrome          # web browser
-# brew cask install google-earth-pro       # from google
-# brew cask install google-hangouts
-# brew cask install gpg-suite             # GPG keys tool box
-brew cask install insomnia               # HTTP request (API) editor
-brew cask install iterm2                 # terminal
-brew cask install jq                     # json command line parser/formatter
-# brew cask install latexian
-# brew cask install licecap               # animated gif maker from screen
-brew cask install meld                   # file/dir diff
-# brew cask install onedrive
-brew cask install protonvpn                # VPN
-brew install xquartz                       # Requirement for x2goclient
-brew install x2goclient                    # fork of NoMachine for remote display (on units)
-# brew cask install qlcolorcode            # enhance quicklook display
-# brew cask install qlmarkdown             # enhance quicklook display
-# brew cask install qlprettypatch          # enhance quicklook display
-# brew cask install qlstephen              # enhance quicklook display
-# brew cask install quicklook-csv          # enhance quicklook display
-# brew cask install quicklook-json         # enhance quicklook display
-brew cask install screenflick            # screen+sound recorder
-# brew cask install sketchup               # 3D editor
-brew cask install skype                  # conference manager
-brew cask install slack                  # collaborative work
-brew cask install spectacle              # shortcut to resize/move windows
-brew cask install spotify                # audio player
-brew cask install statusfy               # songs on-play by spotify dispayed in menu bar
-brew cask install steam                  # game platform
-# brew cask install sublime-text
-# brew cask install suspicious-package
-# brew cask install superduper
-# brew cask install telegram               # conference
-# brew cask install totalfinder
-brew cask install transmission           # bit-torrent
-# brew cask install valentina-studio       # video editor
-brew cask install visual-studio-code     # dev editor
-brew cask install vlc                    # video reader
-brew cask install whatsapp               # what's app client
-# brew cask install webpquicklook          # enhance quicklook display
-# brew cask install x-lite                 # voice over IP client
-brew cask install zoom                   # conference client
-brew cask install menumeters             # CPU/RAM/IO indicators in menu bar
+brew install 1password               # password manager
+brew install 1password-cli           # password manager command line interface
+brew install alfred                  # spotlight replacement
+# brew install anaconda
+brew install android-file-transfer   # file sync for android phones
+# brew install android-studio        # dev editor
+# brew install appcleaner
+# brew install asepsis
+brew install caffeine                # activate/deactivate screensaver from menu bar
+# brew install carbon-copy-cloner    # backup manager
+# brew install synology-drive
+# brew install ccleaner
+# brew install cheatsheet            # display all available shortcuts within context
+brew install cleanmymac              # mac OS maintenance tool
+# brew install db-browser-for-sqlite # Browser for SQLite DB files
+brew install docker                  # container manager
+# brew install doubletwist
+brew install drawio                  # offline version of draw.io
+brew install dropbox                 # file sync
+# brew install evernote              # note manager
+brew install firefox                 # web browser
+# brew install flux
+# brew install ghost                 # blog editor
+brew install google-chrome           # web browser
+# brew install google-earth-pro      # from google
+# brew install google-hangouts
+# brew install gpg-suite             # GPG keys tool box
+brew install insomnia                # HTTP request (API) editor
+brew install iterm2                  # terminal
+brew install jq                      # json command line parser/formatter
+# brew install latexian
+# brew install licecap               # animated gif maker from screen
+brew install meld                    # file/dir diff
+brew install onedrive                # Microsoft file sync solution
+brew install protonvpn               # VPN
+# brew install xquartz               # Requirement for x2goclient
+# brew install x2goclient            # fork of NoMachine for remote display (on units)
+# brew install qlcolorcode           # enhance quicklook display
+# brew install qlmarkdown            # enhance quicklook display
+# brew install qlprettypatch         # enhance quicklook display
+# brew install qlstephen             # enhance quicklook display
+# brew install quicklook-csv         # enhance quicklook display
+# brew install quicklook-json        # enhance quicklook display
+brew install screenflick             # screen+sound recorder
+# brew install sketchup              # 3D editor
+brew install skype                   # conference manager
+brew install slack                   # collaborative work
+brew install spectacle               # shortcut to resize/move windows
+brew install spotify                 # audio player
+brew install statusfy                # songs on-play by spotify dispayed in menu bar
+brew install steam                   # game platform
+# brew install sublime-text
+# brew install suspicious-package
+# brew install superduper
+# brew install telegram               # conference
+# brew install totalfinder
+brew install transmission           # bit-torrent
+# brew install valentina-studio       # video editor
+brew install visual-studio-code     # dev editor
+brew install vlc                    # video reader
+brew install whatsapp               # what's app client
+# brew install webpquicklook          # enhance quicklook display
+# brew install x-lite                 # voice over IP client
+brew install zoom                   # conference client
+brew install menumeters             # CPU/RAM/IO indicators in menu bar
 
 # Remove outdated versions from the cellar.
 brew cleanup
