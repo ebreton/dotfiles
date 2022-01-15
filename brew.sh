@@ -177,10 +177,11 @@ brew install google-chrome           # web browser
 brew install insomnia                # HTTP request (API) editor
 brew install iterm2                  # terminal
 brew install jq                      # json command line parser/formatter
+brew install kdrive                  # Infomaniak cloud storage
 # brew install latexian
 # brew install licecap               # animated gif maker from screen
 brew install meld                    # file/dir diff
-brew install onedrive                # Microsoft file sync solution
+brew install microsoft-office        # Microsoft Office for Mac + onedrive
 brew install protonvpn               # VPN
 # brew install xquartz               # Requirement for x2goclient
 # brew install x2goclient            # fork of NoMachine for remote display (on units)
@@ -191,6 +192,7 @@ brew install protonvpn               # VPN
 # brew install quicklook-csv         # enhance quicklook display
 # brew install quicklook-json        # enhance quicklook display
 brew install screenflick             # screen+sound recorder
+brew install signal                  # Signal's messenger client
 # brew install sketchup              # 3D editor
 brew install skype                   # conference manager
 brew install slack                   # collaborative work
