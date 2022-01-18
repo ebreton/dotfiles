@@ -106,7 +106,8 @@ brew install git                        # Distributed revision control system
 # brew install heroku                     # CLI for heroku
 # brew install imagemagick@6 --with-liblqr --with-webp
 # brew install jq                         # CLI json processor
-brew install libmagic                   # lib for image manipulation
+brew install libmagic                     # lib for image manipulation
+brew install libpq                        # psql, pg_dump and a whole bunch of other client utilities without installing Postgres
 # brew install lua
 # brew install lynx                       # CLI web browser
 # brew install libzip                     # C library for reading, creating, and modifying zip archives
