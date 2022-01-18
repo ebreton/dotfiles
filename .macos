@@ -149,6 +149,17 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Disable hibernation (speeds up entering sleep mode)
 # sudo pmset -a hibernatemode 0
 
+# Enable hibernation on RAM
+# sudo pmset hibernatemode 3
+
+# Go to deepest sleep mode
+# Enable hibernation on SSD
+sudo pmset ttyskeepawake 0
+sudo pmset womp 0
+sudo pmset powernap 0
+sudo pmset hibernatemode 25
+
+
 # Remove the sleep image file to save disk space
 # sudo rm /private/var/vm/sleepimage
 # Create a zero-byte file instead…
