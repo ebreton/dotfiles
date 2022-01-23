@@ -163,7 +163,7 @@ brew install caffeine                # activate/deactivate screensaver from menu
 # brew install cheatsheet            # display all available shortcuts within context
 brew install cleanmymac              # mac OS maintenance tool
 # brew install db-browser-for-sqlite # Browser for SQLite DB files
-brew install docker                  # container manager
+brew install --cask docker           # container manager (Desktop App)
 # brew install doubletwist
 brew install drawio                  # offline version of draw.io
 brew install dropbox                 # file sync
