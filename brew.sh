@@ -118,8 +118,10 @@ brew install libpq                        # psql, pg_dump and a whole bunch of o
 # to install latest python 3
 # brew install python
 # WARNING: there are some known issues with pyenv, check following wiki page to resolve them:
-# https://github.com/pyenv/pyenv/wiki/Common-build-problems, e.g:
-brew install pyenv
+# https://github.com/pyenv/pyenv/wiki/Common-build-problems
+# Better use bash installer
+# curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+# brew install pyenv
 # PYTHON_CONFIGURE_OPTS="--with-tcl-tk" CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install 3.6.8
 # CFLAGS="-I$(brew --prefix zlib)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix zlib)/lib" pyenv install 3.6.8
 # dependency for pyenv
@@ -164,6 +166,7 @@ brew install caffeine                # activate/deactivate screensaver from menu
 brew install cleanmymac              # mac OS maintenance tool
 # brew install db-browser-for-sqlite # Browser for SQLite DB files
 brew install --cask docker           # container manager (Desktop App)
+brew install deepL                   # translations
 # brew install doubletwist
 brew install drawio                  # offline version of draw.io
 brew install dropbox                 # file sync
