@@ -108,24 +108,31 @@ brew install git                        # Distributed revision control system
 # brew install jq                         # CLI json processor
 brew install libmagic                     # lib for image manipulation
 brew install libpq                        # psql, pg_dump and a whole bunch of other client utilities without installing Postgres
+# brew install libzip                     # C library for reading, creating, and modifying zip archives
 # brew install lua
 # brew install lynx                       # CLI web browser
-# brew install libzip                     # C library for reading, creating, and modifying zip archives
 # brew install node                       # Platform built on V8 to build network applications
 # brew install p7zip                      # 7-Zip (high compression file archiver) implementation
 # brew install pigz
 # brew install pv
 # to install latest python 3
 # brew install python
+
 # WARNING: there are some known issues with pyenv, check following wiki page to resolve them:
 # https://github.com/pyenv/pyenv/wiki/Common-build-problems
 # Better use bash installer
 # curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-# brew install pyenv
 # PYTHON_CONFIGURE_OPTS="--with-tcl-tk" CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install 3.6.8
 # CFLAGS="-I$(brew --prefix zlib)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix zlib)/lib" pyenv install 3.6.8
 # dependency for pyenv
-# brew install readline
+xcode-select --install
+brew install gcc
+brew install readline
+brew install m4
+brew install autoconf
+brew install pkg-config
+brew install pyenv
+
 # brew install rename
 # brew install rhino
 brew install speedtest_cli
