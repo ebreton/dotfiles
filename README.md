@@ -1,6 +1,6 @@
 # Dotfiles macOS
 
-Configuration d’un poste macOS avec Homebrew, chezmoi, Bash et Zsh. Bash reste le shell de connexion. Starship utilise le même prompt dans les deux shells.
+Ce dépôt public aide à configurer un Mac neuf ou un poste macOS existant avec Homebrew et chezmoi. Il fournit des réglages pour Bash et Zsh et un prompt Starship commun. Le shell de connexion déjà choisi sur le Mac est conservé.
 
 | Emplacement | Rôle |
 | --- | --- |
@@ -13,11 +13,11 @@ Configuration d’un poste macOS avec Homebrew, chezmoi, Bash et Zsh. Bash reste
 
 Le répertoire `.audit/` est privé et ignoré par Git.
 
-## Nouveau Mac
+## Configurer votre Mac
 
 ### Outils Apple et Homebrew
 
-Vérifier `xcode-select -p`. Si les outils sont absents, lancer `xcode-select --install` puis attendre l’installation. Installer Homebrew avec la commande officielle publiée sur [brew.sh](https://brew.sh/). Charger son environnement dans le terminal courant.
+Ouvrez l’application Terminal. Vérifiez les outils Apple avec `xcode-select -p`. S’ils sont absents, lancez `xcode-select --install` et attendez la fin de l’installation. Si Homebrew est absent, suivez la procédure officielle. [Homebrew](https://brew.sh/)
 
 ```bash
 # Apple Silicon
@@ -28,34 +28,36 @@ git --version
 command -v git
 ```
 
-### SSH avec 1Password et clonage
+### Accès au dépôt public et clonage SSH
 
-1. Installer `brew install --cask 1password`, ouvrir l’application et se connecter au coffre. Activer l’agent SSH dans les paramètres de développement.
-2. Configurer OpenSSH pour cet agent selon la [documentation 1Password](https://developer.1password.com/docs/ssh/get-started/). Fusionner ce réglage avec un éventuel `~/.ssh/config`. Vérifier que la clé publique correspondante est enregistrée dans GitHub. L’agent, ses clés et les données de connexion restent locaux.
-3. Vérifier l’empreinte d’hôte affichée avec les [empreintes officielles GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints), puis tester `ssh -T git@github.com`. GitHub affiche le compte authentifié et retourne normalement 1 pour ce test réussi.
+Vous pouvez lire le dépôt dans un navigateur sans compte ni invitation. Pour le cloner en SSH, utilisez votre propre compte GitHub et une clé publique enregistrée sur ce compte. L’accès à des dépôts d’organisation se demande séparément.
+
+- Avec 1Password, installez au besoin `brew install --cask 1password`, ouvrez votre coffre et activez l’agent SSH. Fusionnez ses réglages avec votre éventuel `~/.ssh/config`. [Guide 1Password pour SSH](https://developer.1password.com/docs/ssh/get-started/)
+- Avec l’agent OpenSSH, utilisez une clé existante ou créez-en une et ajoutez sa partie publique à votre compte. [Configuration SSH dans GitHub](https://docs.github.com/fr/authentication/connecting-to-github-with-ssh)
+- Au premier accès, vérifiez l’empreinte du serveur. `ssh -T git@github.com` doit afficher votre nom d’utilisateur GitHub. GitHub utilise normalement le code de sortie 1 pour ce test réussi. [Empreintes SSH officielles](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)
 
 ```bash
-mkdir -p ~/code/ebreton
-git clone git@github.com:ebreton/dotfiles.git ~/code/ebreton/dotfiles
-cd ~/code/ebreton/dotfiles
+mkdir -p "$HOME/code"
+git clone git@github.com:ebreton/dotfiles.git "$HOME/code/dotfiles"
+cd "$HOME/code/dotfiles"
 ```
 
-Si le checkout existe déjà, vérifier sa branche et son remote avec `git status -sb` et `git remote -v`.
+Le chemin est un exemple. Vous pouvez utiliser un autre dossier ou reprendre un checkout existant après avoir vérifié sa branche et son remote avec `git status -sb` et `git remote -v`.
 
 ### Installation et déploiement
 
 ```bash
-./bootstrap.sh plan --development
-./bootstrap.sh install --development
+./bootstrap.sh plan
+./bootstrap.sh install
 ./bootstrap.sh plan
 ./bootstrap.sh apply
 ```
 
-Sans `--development`, `install` installe seulement le socle et les applications du Brewfile principal. L’installation conserve les paquets déjà présents et ne force pas leurs mises à niveau. Homebrew suit les versions disponibles au moment de l’installation. L’accès aux services, les licences, les connexions aux applications et les autorisations macOS sont effectués dans les applications concernées.
+Pour ajouter iTerm2 et VS Code, utilisez `./bootstrap.sh plan --development` et `./bootstrap.sh install --development` aux étapes de sélection et d’installation. Consultez le [Brewfile](Brewfile) pour connaître les applications du parcours standard. L’installation conserve les paquets présents et ne force pas leur mise à niveau. L’accès aux services, les licences et les autorisations macOS se règlent dans les applications concernées.
 
-Le bootstrap réutilise le checkout courant, crée la configuration chezmoi si nécessaire et vérifie son emplacement. Si une autre configuration chezmoi existe, examiner `chezmoi edit-config` avant de définir `sourceDir` sur le chemin absolu du checkout. Le plan affiche le diff des fichiers gérés. Examiner les éventuelles personnalisations à fusionner avant `apply`. Pour Git, le bootstrap ajoute un include portable en conservant les autres entrées existantes. Il règle aussi le transport Git de `gh` pour `github.com`.
+Le bootstrap associe chezmoi au checkout courant. Si vous utilisez déjà chezmoi avec un autre dépôt, examinez sa configuration avec `chezmoi edit-config` avant de modifier `sourceDir`. Relisez le second plan avant `apply`, surtout si vous avez déjà des dotfiles personnalisés.
 
-Configurer une fois l’identité locale avec `git config --global user.name 'Prénom Nom'` et `git config --global user.email 'adresse GitHub ou noreply'`. Pour utiliser l’API et les commandes GitHub CLI, effectuer séparément `gh auth login --hostname github.com --git-protocol ssh --web --skip-ssh-key`. La connexion SSH utilise la clé déjà enregistrée dans GitHub. L’accès API de gh utilise sa propre authentification.
+Si vous créez des commits, définissez votre propre identité Git avec `git config --global user.name 'Prénom Nom'` et `git config --global user.email 'adresse GitHub ou noreply'`. Pour utiliser GitHub CLI, vous pouvez vous connecter séparément avec `gh auth login --hostname github.com --git-protocol ssh --web --skip-ssh-key`. Le bootstrap configure le protocole Git de gh pour GitHub.
 
 ### Shell et éditeur
 
