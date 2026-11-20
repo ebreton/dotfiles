@@ -1,4 +1,8 @@
 # shellcheck source-path=SCRIPTDIR
+
+# Keep macOS Bash as the login shell without its migration notice.
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 if [ -r "$HOME/.config/shell/environment.sh" ]; then
     # shellcheck source=dot_config/shell/environment.sh
     . "$HOME/.config/shell/environment.sh"

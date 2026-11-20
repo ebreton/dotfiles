@@ -15,6 +15,18 @@ if command -v chezmoi >/dev/null 2>&1; then
     printf 'Source chezmoi : '
     chezmoi execute-template '{{ .chezmoi.workingTree }}'
     printf '\n'
+
+    profile="$HOME/Library/Application Support/iTerm2/DynamicProfiles/dotfiles.json"
+    if [ -f "$profile" ]; then
+        if chezmoi verify "$profile"; then
+            printf 'Profil iTerm2 Dotfiles : conforme au dépôt\n'
+        else
+            printf 'Profil iTerm2 Dotfiles : écart ou erreur de vérification\n'
+            printf 'Pour examiner le diff : chezmoi diff "%s"\n' "$profile"
+        fi
+    elif [ -d /Applications/iTerm.app ] || [ -d "$HOME/Applications/iTerm.app" ]; then
+        printf 'Profil iTerm2 Dotfiles : fichier local absent\n'
+    fi
 fi
 if command -v gh >/dev/null 2>&1; then
     printf 'Transport gh pour GitHub : '

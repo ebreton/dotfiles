@@ -6,7 +6,7 @@ Configuration d’un poste macOS avec Homebrew, chezmoi, Bash et Zsh. Bash reste
 | --- | --- |
 | `home/` | Sources chezmoi, sélectionnées par `.chezmoiroot` |
 | `Brewfile` | Socle CLI et applications courantes |
-| `brew/Brewfile.development` | Outils de développement facultatifs, actuellement VS Code |
+| `brew/Brewfile.development` | Outils de développement facultatifs, dont iTerm2 et VS Code |
 | `bootstrap.sh` | Prévisualisation, installation et déploiement |
 | `scripts/` | Diagnostic et préférences macOS facultatives |
 | [`docs/DECISIONS.md`](docs/DECISIONS.md) | Décisions, arbitrages et état des vérifications |
@@ -38,11 +38,9 @@ command -v git
 mkdir -p ~/code/ebreton
 git clone git@github.com:ebreton/dotfiles.git ~/code/ebreton/dotfiles
 cd ~/code/ebreton/dotfiles
-# Jusqu’à l’intégration de la migration à la branche par défaut.
-git switch modernize/chezmoi-starship
 ```
 
-Cette branche doit être publiée avant de pouvoir la cloner sur un autre Mac. Si le checkout existe déjà, vérifier sa branche et son remote avec `git status -sb` et `git remote -v`.
+Si le checkout existe déjà, vérifier sa branche et son remote avec `git status -sb` et `git remote -v`.
 
 ### Installation et déploiement
 
@@ -64,6 +62,12 @@ Configurer une fois l’identité locale avec `git config --global user.name 'Pr
 Ouvrir un nouveau Terminal ou lancer `exec /bin/bash -l`. Essayer Zsh avec `/bin/zsh -l`. Les deux shells partagent les alias `..`, `...`, `ll`, `la`, la fonction `mkd` et la configuration Starship dans `~/.config`. Choisir un terminal avec UTF-8 pour afficher le prompt.
 
 VS Code est l’éditeur de référence. Si `code` est absent du PATH, utiliser la palette VS Code, commande **Shell Command: Install 'code' command in PATH**. Dans un nouveau shell, `EDITOR` prend alors la valeur `code --wait` s’il n’a pas déjà été défini. Utiliser Settings Sync de VS Code si le partage de ses réglages et extensions est souhaité.
+
+Chezmoi déploie le profil iTerm2 **Dotfiles** dans `~/Library/Application Support/iTerm2/DynamicProfiles`. Pendant `./bootstrap.sh apply`, le script sélectionne **Dotfiles** comme profil par défaut pour les nouvelles sessions et désactive la confirmation de `⌘Q`. Ce profil lance le shell de connexion, active l’intégration shell automatique et conserve 10 000 lignes de défilement. Il hérite des couleurs et de la police du profil par défaut. Les alias et Starship sont chargés par les fichiers de démarrage habituels. [Profils dynamiques](https://iterm2.com/documentation-dynamic-profiles.html) · [Intégration shell](https://iterm2.com/documentation-shell-integration.html)
+
+Si iTerm2 est ouvert au moment du changement, termine tes sessions, quitte iTerm2, puis exécute `./scripts/iterm2-preferences.sh` depuis Terminal. Rouvre iTerm2 pour utiliser les nouveaux réglages. [Préférences iTerm2](https://iterm2.com/documentation-preferences-general.html)
+
+Pour faire évoluer ce profil, modifier [son JSON](home/private_Library/private_Application%20Support/iTerm2/DynamicProfiles/dotfiles.json) en conservant son `Guid`, puis appliquer les dotfiles. iTerm2 recharge le fichier automatiquement. Le profil distingue les couleurs des modes clair et sombre. iTerm2 peut aussi réécrire le JSON lorsque tu modifies le profil dans son interface. `./scripts/diagnose.sh` compare alors le fichier local à la version du dépôt et indique comment afficher les écarts avant de relancer un déploiement. Les préfixes `private_` dans les sources chezmoi donnent à `~/Library` et à `~/Library/Application Support` les permissions `0700`.
 
 ### Python
 

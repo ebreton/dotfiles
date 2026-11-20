@@ -2,12 +2,13 @@
 
 | Décision | Raison et alternative examinée |
 | --- | --- |
-| Conserver `git@github.com:ebreton/dotfiles.git` et son historique. Travailler sur `modernize/chezmoi-starship`. | L’historique garde la trace de l’ancienne configuration. Le bootstrap actuel réutilise le checkout. |
+| Conserver `git@github.com:ebreton/dotfiles.git` et son historique. Intégrer la migration à `master`. | L’historique garde la trace de l’ancienne configuration. Le bootstrap actuel réutilise le checkout. |
 | Gérer les fichiers personnels avec chezmoi et `.chezmoiroot` dans `home/`. | Le manifeste, le README et les scripts restent en dehors des cibles. Le remplacement du bootstrap rsync permet de prévisualiser les changements. |
 | Conserver Bash 3.2 et préparer Zsh avec un prompt Starship commun. | Une migration du shell de connexion peut intervenir séparément. Les fichiers communs utilisent des constructions compatibles avec les deux shells. |
 | Installer Git et pyenv via Homebrew et choisir Python par projet. Gérer Poetry manuellement avec les versions Python installées par pyenv. | L’installation et la configuration de Poetry relèvent des besoins de chaque projet. |
 | Utiliser l’agent 1Password pour SSH et une seule identité GitHub. | Le parcours reprend l’agent déjà configuré. L’identité et l’accès CLI restent configurés localement. |
-| Installer les applications courantes par défaut et rendre les outils de développement supplémentaires optionnels. | Le socle CLI et Python restent nécessaires au poste. VS Code est proposé dans le manifeste de développement. |
+| Installer les applications courantes par défaut et rendre les outils de développement supplémentaires optionnels. | Le socle CLI et Python restent nécessaires au poste. iTerm2 et VS Code sont proposés dans le manifeste de développement. |
+| Déployer le profil dynamique iTerm2 avec intégration shell automatique, le sélectionner par défaut et désactiver la confirmation de `⌘Q`. | Le profil est versionné et hérite de l’apparence locale. iTerm2 charge son intégration dans les nouvelles sessions du profil. |
 | Choisir VS Code comme éditeur et écarter le Vim historique. | Le terminal sélectionne `code --wait` quand la commande est disponible et qu’aucun éditeur n’est déjà défini. |
 | Reprendre les réglages Finder et Dock observés dans un script facultatif. | Les opérations sont limitées à quatre préférences utilisateur. Le profil Terminal Clear Dark reste local. |
 

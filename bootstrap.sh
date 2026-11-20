@@ -5,7 +5,7 @@ usage() {
     printf 'Usage: %s [plan|install|apply] [--development]\n' "$0"
     printf '  plan      Review packages and dotfile changes (default)\n'
     printf '  install   Install packages and initialize chezmoi if necessary\n'
-    printf '  apply     Deploy dotfiles and configure Git and GitHub CLI\n'
+    printf '  apply     Deploy dotfiles and configure Git, GitHub CLI and iTerm2 if installed\n'
 }
 
 action=${1:-plan}
@@ -99,3 +99,4 @@ if ! "$git_bin" config --global --fixed-value --get-all include.path "$git_inclu
     "$git_bin" config --global --add include.path "$git_include"
 fi
 gh config set git_protocol ssh --host github.com
+"$root/scripts/iterm2-preferences.sh"

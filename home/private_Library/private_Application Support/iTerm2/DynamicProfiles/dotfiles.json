@@ -1,0 +1,14 @@
+{
+    "Profiles": [
+        {
+            "Name": "Dotfiles",
+            "Guid": "da7dcdf8-94d3-4e18-9e9a-37645117ce4b",
+            "Custom Command": "No",
+            "Load Shell Integration Automatically": true,
+            "Unlimited Scrollback": false,
+            "Scrollback Lines": 10000,
+            "Use Separate Colors for Light and Dark Mode": true,
+            "Rewritable": true
+        }
+    ]
+}
