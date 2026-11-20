@@ -1,7 +1,5 @@
 # Décisions de configuration
 
-L’[audit du 20 novembre 2026](AUDIT.md) documente l’état initial et les recommandations examinées avant migration.
-
 | Décision | Raison et alternative examinée |
 | --- | --- |
 | Conserver `git@github.com:ebreton/dotfiles.git` et son historique. Travailler sur `modernize/chezmoi-starship`. | L’historique garde la trace de l’ancienne configuration. Le bootstrap actuel réutilise le checkout. |

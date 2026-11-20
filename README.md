@@ -10,7 +10,6 @@ Configuration d’un poste macOS avec Homebrew, chezmoi, Bash et Zsh. Bash reste
 | `bootstrap.sh` | Prévisualisation, installation et déploiement |
 | `scripts/` | Diagnostic et préférences macOS facultatives |
 | [`docs/DECISIONS.md`](docs/DECISIONS.md) | Décisions, arbitrages et état des vérifications |
-| [`docs/AUDIT.md`](docs/AUDIT.md) | Audit préalable à la migration |
 
 Le répertoire `.audit/` est privé et ignoré par Git.
 
