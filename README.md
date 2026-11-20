@@ -94,7 +94,11 @@ chezmoi verify
 gh config get git_protocol --host github.com
 ```
 
-Le script facultatif règle les barres et la vue du Finder ainsi que les applications récentes du Dock. Le profil Terminal Clear Dark reste un réglage local.
+`--preview` lit les valeurs actuelles et signale celles qui changeraient. `--apply` écrit les écarts, relit chaque valeur modifiée et redémarre le Finder ou le Dock si ses réglages ont changé.
+
+La vue liste est la préférence générale du Finder. Si un dossier conserve une autre vue, ouvre ses options de présentation avec `⌘J` et vérifie le réglage « Toujours ouvrir en ». [Guide Apple du Finder](https://support.apple.com/fr-fr/guide/mac-help/mchldaafb302/mac)
+
+Le profil Terminal Clear Dark reste un réglage local.
 
 ## Maintenance et synchronisation
 
