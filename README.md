@@ -68,7 +68,7 @@ VS Code est l’éditeur de référence. Si `code` est absent du PATH, utiliser 
 
 ### Python
 
-Homebrew installe pyenv et Poetry. Choisir une version Python adaptée au projet, sans définir de version globale imposée.
+Homebrew installe pyenv. Choisir une version Python adaptée au projet, sans définir de version globale imposée.
 
 ```bash
 pyenv install --list
@@ -77,13 +77,9 @@ pyenv install -s X.Y.Z
 cd /chemin/du/projet
 pyenv local X.Y.Z
 python --version
-poetry env use "$(pyenv which python)"
-poetry install
-poetry env info --path
-source .venv/bin/activate
 ```
 
-Les deux shells chargent les shims pyenv et configurent Poetry pour les `.venv` locales. Si le projet a déjà un environnement Poetry externe, examiner `poetry env list --full-path` avant de le recréer. Le prompt affiche le virtualenv lorsqu’il est activé. Utiliser `poetry run` pour exécuter une commande sans activation.
+Les deux shells chargent les shims pyenv. Si un projet utilise Poetry, gérer son installation et sa configuration manuellement avec la version Python sélectionnée par pyenv. Starship affiche le virtualenv lorsqu’il est activé.
 
 ### Préférences macOS et validation
 
@@ -116,7 +112,6 @@ Le script facultatif règle les barres et la vue du Finder ainsi que les applica
 | Refus SSH | Déverrouiller 1Password, vérifier la clé publique dans GitHub et le réglage d’agent avec `ssh -G github.com`. |
 | Chezmoi pointe ailleurs | Vérifier le chemin avec `./scripts/diagnose.sh` et corriger `sourceDir` localement. |
 | Python reste système | Exécuter `pyenv version` et `pyenv which python3` depuis le projet. Installer la version attendue si elle manque. |
-| Poetry crée un environnement ailleurs | Vérifier `poetry config virtualenvs.in-project` dans le nouveau shell et examiner les environnements existants. |
 | Prompt absent | Vérifier `command -v starship`, `STARSHIP_CONFIG` et le type de terminal. |
 | Conflit d’installation d’une application | Vérifier si une copie indépendante existe dans Applications. Préserver ses données et résoudre le conflit individuellement. |
 

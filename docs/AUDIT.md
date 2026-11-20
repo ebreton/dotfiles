@@ -1,5 +1,7 @@
 # Audit de migration macOS
 
+Les propositions ci-dessous reflètent la revue initiale. La gestion manuelle de Poetry a été retenue par la suite. Voir le [journal des décisions](DECISIONS.md).
+
 ## État au 20 novembre 2026
 
 - Branche `modernize/chezmoi-starship` au commit `a6cbf6b` du 1er juin 2022, identique à `master` et à la référence locale `origin/master`. L’historique local compte 809 commits et conserve l’héritage mathiasbynens. Le remote utilise SSH. La branche de travail n’a pas de suivi distant configuré. Aucun changement suivi à l’ouverture, et `docs/DECISIONS.md` existait déjà comme fichier non suivi.

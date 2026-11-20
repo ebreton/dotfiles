@@ -7,7 +7,6 @@ brew "shellcheck"
 
 # Python toolchain
 brew "pyenv"
-brew "poetry"
 
 # Workstation applications
 cask "1password"
