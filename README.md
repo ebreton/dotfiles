@@ -105,6 +105,18 @@ Le script facultatif règle les barres et la vue du Finder ainsi que les applica
 
 ## Dépannage
 
+### Chezmoi signale que le modèle de configuration a changé
+
+L’avertissement `config file template has changed, run chezmoi init to regenerate config file` indique que la configuration locale est antérieure au modèle du dépôt. Depuis la racine du checkout, régénérer cette configuration avec la commande suivante.
+
+```bash
+chezmoi --source "$PWD" init
+```
+
+Cette commande régénère le fichier de configuration sans appliquer les dotfiles. Si tu as ajouté des réglages locaux à `~/.config/chezmoi/chezmoi.toml`, sauvegarde ce fichier avant la régénération et reporte tes réglages ensuite. Relance `./bootstrap.sh plan`, puis `./bootstrap.sh apply` si le diff correspond à ce que tu souhaites appliquer.
+
+### Autres cas
+
 | Symptôme | Vérification |
 | --- | --- |
 | Git système prioritaire | Ouvrir un shell de connexion et vérifier `type -a git` et le résultat de `brew shellenv bash`. |
