@@ -1,0 +1,8 @@
+[init]
+    defaultBranch = main
+[fetch]
+    prune = true
+[push]
+    default = simple
+[user]
+    useConfigOnly = true

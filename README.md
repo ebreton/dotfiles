@@ -1,111 +1,125 @@
-# Mathias’s dotfiles
+# Dotfiles macOS
 
-![Screenshot of my shell prompt](https://i.imgur.com/EkEtphC.png)
+Configuration d’un poste macOS avec Homebrew, chezmoi, Bash et Zsh. Bash reste le shell de connexion. Starship utilise le même prompt dans les deux shells.
 
-## Installation
+| Emplacement | Rôle |
+| --- | --- |
+| `home/` | Sources chezmoi, sélectionnées par `.chezmoiroot` |
+| `Brewfile` | Socle CLI et applications courantes |
+| `brew/Brewfile.development` | Outils de développement facultatifs, actuellement VS Code |
+| `bootstrap.sh` | Prévisualisation, installation et déploiement |
+| `scripts/` | Diagnostic et préférences macOS facultatives |
+| [`docs/DECISIONS.md`](docs/DECISIONS.md) | Décisions, arbitrages et état des vérifications |
+| [`docs/AUDIT.md`](docs/AUDIT.md) | Audit préalable à la migration |
 
-**Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
+Le répertoire `.audit/` est privé et ignoré par Git.
 
-### Using Git and the bootstrap script
+## Nouveau Mac
 
-You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
+### Outils Apple et Homebrew
 
-```bash
-git clone https://github.com/mathiasbynens/dotfiles.git && cd dotfiles && source bootstrap.sh
-```
-
-To update, `cd` into your local `dotfiles` repository and then:
-
-```bash
-source bootstrap.sh
-```
-
-Alternatively, to update while avoiding the confirmation prompt:
+Vérifier `xcode-select -p`. Si les outils sont absents, lancer `xcode-select --install` puis attendre l’installation. Installer Homebrew avec la commande officielle publiée sur [brew.sh](https://brew.sh/). Charger son environnement dans le terminal courant.
 
 ```bash
-set -- -f; source bootstrap.sh
+# Apple Silicon
+eval "$(/opt/homebrew/bin/brew shellenv bash)"
+# Sur Mac Intel, utiliser /usr/local/bin/brew.
+brew install git chezmoi
+git --version
+command -v git
 ```
 
-### Git-free install
+### SSH avec 1Password et clonage
 
-To install these dotfiles without Git:
+1. Installer `brew install --cask 1password`, ouvrir l’application et se connecter au coffre. Activer l’agent SSH dans les paramètres de développement.
+2. Configurer OpenSSH pour cet agent selon la [documentation 1Password](https://developer.1password.com/docs/ssh/get-started/). Fusionner ce réglage avec un éventuel `~/.ssh/config`. Vérifier que la clé publique correspondante est enregistrée dans GitHub. L’agent, ses clés et les données de connexion restent locaux.
+3. Vérifier l’empreinte d’hôte affichée avec les [empreintes officielles GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints), puis tester `ssh -T git@github.com`. GitHub affiche le compte authentifié et retourne normalement 1 pour ce test réussi.
 
 ```bash
-cd; curl -#L https://github.com/mathiasbynens/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,.osx,LICENSE-MIT.txt}
+mkdir -p ~/code/ebreton
+git clone git@github.com:ebreton/dotfiles.git ~/code/ebreton/dotfiles
+cd ~/code/ebreton/dotfiles
+# Jusqu’à l’intégration de la migration à la branche par défaut.
+git switch modernize/chezmoi-starship
 ```
 
-To update later on, just run that command again.
+Cette branche doit être publiée avant de pouvoir la cloner sur un autre Mac. Si le checkout existe déjà, vérifier sa branche et son remote avec `git status -sb` et `git remote -v`.
 
-### Specify the `$PATH`
-
-If `~/.path` exists, it will be sourced along with the other files, before any feature testing (such as [detecting which version of `ls` is being used](https://github.com/mathiasbynens/dotfiles/blob/aff769fd75225d8f2e481185a71d5e05b76002dc/.aliases#L21-26)) takes place.
-
-Here’s an example `~/.path` file that adds `/usr/local/bin` to the `$PATH`:
+### Installation et déploiement
 
 ```bash
-export PATH="/usr/local/bin:$PATH"
+./bootstrap.sh plan --development
+./bootstrap.sh install --development
+./bootstrap.sh plan
+./bootstrap.sh apply
 ```
 
-### Add custom commands without creating a new fork
+Sans `--development`, `install` installe seulement le socle et les applications du Brewfile principal. L’installation conserve les paquets déjà présents et ne force pas leurs mises à niveau. Homebrew suit les versions disponibles au moment de l’installation. L’accès aux services, les licences, les connexions aux applications et les autorisations macOS sont effectués dans les applications concernées.
 
-If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
+Le bootstrap réutilise le checkout courant, crée la configuration chezmoi si nécessaire et vérifie son emplacement. Si une autre configuration chezmoi existe, examiner `chezmoi edit-config` avant de définir `sourceDir` sur le chemin absolu du checkout. Le plan affiche le diff des fichiers gérés. Examiner les éventuelles personnalisations à fusionner avant `apply`. Pour Git, le bootstrap ajoute un include portable en conservant les autres entrées existantes. Il règle aussi le transport Git de `gh` pour `github.com`.
 
-My `~/.extra` looks something like this:
+Configurer une fois l’identité locale avec `git config --global user.name 'Prénom Nom'` et `git config --global user.email 'adresse GitHub ou noreply'`. Pour utiliser l’API et les commandes GitHub CLI, effectuer séparément `gh auth login --hostname github.com --git-protocol ssh --web --skip-ssh-key`. La connexion SSH utilise la clé déjà enregistrée dans GitHub. L’accès API de gh utilise sa propre authentification.
+
+### Shell et éditeur
+
+Ouvrir un nouveau Terminal ou lancer `exec /bin/bash -l`. Essayer Zsh avec `/bin/zsh -l`. Les deux shells partagent les alias `..`, `...`, `ll`, `la`, la fonction `mkd` et la configuration Starship dans `~/.config`. Choisir un terminal avec UTF-8 pour afficher le prompt.
+
+VS Code est l’éditeur de référence. Si `code` est absent du PATH, utiliser la palette VS Code, commande **Shell Command: Install 'code' command in PATH**. Dans un nouveau shell, `EDITOR` prend alors la valeur `code --wait` s’il n’a pas déjà été défini. Utiliser Settings Sync de VS Code si le partage de ses réglages et extensions est souhaité.
+
+### Python
+
+Homebrew installe pyenv et Poetry. Choisir une version Python adaptée au projet, sans définir de version globale imposée.
 
 ```bash
-# Git credentials
-# Not in the repository, to prevent people from accidentally committing under my name
-GIT_AUTHOR_NAME="Mathias Bynens"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="mathias@mailinator.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-git config --global user.email "$GIT_AUTHOR_EMAIL"
+pyenv install --list
+# Remplacer X.Y.Z par la version du projet.
+pyenv install -s X.Y.Z
+cd /chemin/du/projet
+pyenv local X.Y.Z
+python --version
+poetry env use "$(pyenv which python)"
+poetry install
+poetry env info --path
+source .venv/bin/activate
 ```
 
-You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/mathiasbynens/dotfiles/fork) instead, though.
+Les deux shells chargent les shims pyenv et configurent Poetry pour les `.venv` locales. Si le projet a déjà un environnement Poetry externe, examiner `poetry env list --full-path` avant de le recréer. Le prompt affiche le virtualenv lorsqu’il est activé. Utiliser `poetry run` pour exécuter une commande sans activation.
 
-### Sensible macOS defaults
-
-When setting up a new Mac, you may want to set some sensible macOS defaults:
+### Préférences macOS et validation
 
 ```bash
-./.macos
+./scripts/macos-preferences.sh --preview
+# À exécuter seulement si les réglages proposés sont souhaités.
+./scripts/macos-preferences.sh --apply
+
+./scripts/diagnose.sh
+chezmoi managed
+chezmoi diff
+chezmoi verify
+gh config get git_protocol --host github.com
 ```
 
-### Install Homebrew formulae
+Le script facultatif règle les barres et la vue du Finder ainsi que les applications récentes du Dock. Le profil Terminal Clear Dark reste un réglage local.
 
-When setting up a new Mac, you may want to install some common [Homebrew](https://brew.sh/) formulae (after installing Homebrew, of course):
+## Maintenance et synchronisation
 
-```bash
-./brew.sh
-```
+- Pour modifier un fichier existant, utiliser `chezmoi edit ~/.config/starship.toml`, puis examiner `chezmoi diff` avant `chezmoi apply`.
+- Pour ajouter un fichier, examiner son contenu et utiliser `chezmoi add ~/chemin/du/fichier`. Relire le diff Git, notamment l’identité, les chemins personnels et les secrets, avant de committer.
+- Publier les commits volontairement via SSH après validation. Sur un autre Mac, mettre à jour la même branche avec `git pull --ff-only`, puis relire `./bootstrap.sh plan`. Relancer `install` si les manifestes ont changé et `apply` après revue.
+- Mettre à jour Homebrew et ses paquets séparément avec `brew update`, `brew outdated` et des mises à jour ciblées. Relancer le diagnostic après un changement de shell ou de version Python.
 
-Some of the functionality of these dotfiles depends on formulae installed by `brew.sh`. If you don’t plan to run `brew.sh`, you should look carefully through the script and manually install any particularly important ones. A good example is Bash/Git completion: the dotfiles use a special version from Homebrew.
+## Dépannage
 
-## Feedback
+| Symptôme | Vérification |
+| --- | --- |
+| Git système prioritaire | Ouvrir un shell de connexion et vérifier `type -a git` et le résultat de `brew shellenv bash`. |
+| Refus SSH | Déverrouiller 1Password, vérifier la clé publique dans GitHub et le réglage d’agent avec `ssh -G github.com`. |
+| Chezmoi pointe ailleurs | Vérifier le chemin avec `./scripts/diagnose.sh` et corriger `sourceDir` localement. |
+| Python reste système | Exécuter `pyenv version` et `pyenv which python3` depuis le projet. Installer la version attendue si elle manque. |
+| Poetry crée un environnement ailleurs | Vérifier `poetry config virtualenvs.in-project` dans le nouveau shell et examiner les environnements existants. |
+| Prompt absent | Vérifier `command -v starship`, `STARSHIP_CONFIG` et le type de terminal. |
+| Conflit d’installation d’une application | Vérifier si une copie indépendante existe dans Applications. Préserver ses données et résoudre le conflit individuellement. |
 
-Suggestions/improvements
-[welcome](https://github.com/mathiasbynens/dotfiles/issues)!
+## Origine et licence
 
-## Author
-
-| [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
-|---|
-| [Mathias Bynens](https://mathiasbynens.be/) |
-
-## Thanks to…
-
-* @ptb and [his _macOS Setup_ repository](https://github.com/ptb/mac-setup)
-* [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
-* [Cătălin Mariș](https://github.com/alrra) and his [dotfiles repository](https://github.com/alrra/dotfiles)
-* [Gianni Chiappetta](https://butt.zone/) for sharing his [amazing collection of dotfiles](https://github.com/gf3/dotfiles)
-* [Jan Moesen](http://jan.moesen.nu/) and his [ancient `.bash_profile`](https://gist.github.com/1156154) + [shiny _tilde_ repository](https://github.com/janmoesen/tilde)
-* [Lauri ‘Lri’ Ranta](http://lri.me/) for sharing [loads of hidden preferences](http://osxnotes.net/defaults.html)
-* [Matijs Brinkhuis](https://matijs.brinkhu.is/) and his [dotfiles repository](https://github.com/matijs/dotfiles)
-* [Nicolas Gallagher](http://nicolasgallagher.com/) and his [dotfiles repository](https://github.com/necolas/dotfiles)
-* [Sindre Sorhus](https://sindresorhus.com/)
-* [Tom Ryder](https://sanctum.geek.nz/) and his [dotfiles repository](https://sanctum.geek.nz/cgit/dotfiles.git/about)
-* [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [macOS-Defaults project](https://github.com/kevinSuttle/macOS-Defaults), which aims to provide better documentation for [`~/.macos`](https://mths.be/macos)
-* [Haralan Dobrev](https://hkdobrev.com/)
-* Anyone who [contributed a patch](https://github.com/mathiasbynens/dotfiles/contributors) or [made a helpful suggestion](https://github.com/mathiasbynens/dotfiles/issues)
+Le dépôt descend des [dotfiles de Mathias Bynens](https://github.com/mathiasbynens/dotfiles). La configuration historique reste consultable dans Git au commit `a6cbf6b`. La [licence MIT](LICENSE-MIT.txt) est conservée.

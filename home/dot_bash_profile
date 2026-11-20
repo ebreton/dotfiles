@@ -1,0 +1,20 @@
+# shellcheck source-path=SCRIPTDIR
+if [ -r "$HOME/.config/shell/environment.sh" ]; then
+    # shellcheck source=dot_config/shell/environment.sh
+    . "$HOME/.config/shell/environment.sh"
+fi
+
+case $- in
+    *i*)
+        if [ -r "$HOME/.bashrc" ]; then
+            # shellcheck source=dot_bashrc
+            . "$HOME/.bashrc"
+        fi
+        ;;
+    *)
+        if [ -r "$HOME/.config/shell/python-path.sh" ]; then
+            # shellcheck source=dot_config/shell/python-path.sh
+            . "$HOME/.config/shell/python-path.sh"
+        fi
+        ;;
+esac

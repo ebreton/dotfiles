@@ -1,0 +1,26 @@
+format = "$directory$git_branch$git_status$python$status$line_break$character"
+add_newline = false
+
+[directory]
+style = "bold cyan"
+
+[git_branch]
+style = "bold purple"
+
+[git_status]
+style = "bold yellow"
+
+[python]
+detect_extensions = []
+detect_files = []
+detect_folders = []
+detect_env_vars = ["VIRTUAL_ENV", "CONDA_DEFAULT_ENV"]
+format = '[py (${virtualenv} )](bold green)'
+
+[status]
+disabled = false
+format = '[exit $status](bold red) '
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"

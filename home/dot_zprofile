@@ -1,0 +1,6 @@
+if [ -r "$HOME/.config/shell/environment.sh" ]; then
+    . "$HOME/.config/shell/environment.sh"
+fi
+if [[ ! -o interactive && -r "$HOME/.config/shell/python-path.sh" ]]; then
+    . "$HOME/.config/shell/python-path.sh"
+fi

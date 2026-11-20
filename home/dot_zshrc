@@ -1,0 +1,22 @@
+if [ -r "$HOME/.config/shell/environment.sh" ]; then
+    . "$HOME/.config/shell/environment.sh"
+fi
+if [ -r "$HOME/.config/shell/interactive.sh" ]; then
+    . "$HOME/.config/shell/interactive.sh"
+fi
+
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt HIST_IGNORE_DUPS APPEND_HISTORY
+autoload -Uz compinit
+compinit
+
+if command -v pyenv >/dev/null 2>&1 && pyenv_setup="$(pyenv init - zsh)"; then
+    eval "$pyenv_setup"
+fi
+unset pyenv_setup
+if command -v starship >/dev/null 2>&1 && starship_setup="$(starship init zsh)"; then
+    eval "$starship_setup"
+fi
+unset starship_setup
