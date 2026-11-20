@@ -7,6 +7,7 @@ brew "shellcheck"
 
 # Python toolchain
 brew "pyenv"
+brew "xz" # Provides liblzma for Python builds.
 
 # Workstation applications
 cask "1password"

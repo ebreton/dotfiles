@@ -67,7 +67,7 @@ VS Code est l’éditeur de référence. Si `code` est absent du PATH, utiliser 
 
 ### Python
 
-Homebrew installe pyenv. Choisir une version Python adaptée au projet, sans définir de version globale imposée.
+Homebrew installe pyenv et `xz`, qui fournit la bibliothèque utilisée par le module Python `lzma`. Choisir une version Python adaptée au projet, sans définir de version globale imposée.
 
 ```bash
 pyenv install --list
@@ -114,6 +114,18 @@ chezmoi --source "$PWD" init
 ```
 
 Cette commande régénère le fichier de configuration sans appliquer les dotfiles. Si tu as ajouté des réglages locaux à `~/.config/chezmoi/chezmoi.toml`, sauvegarde ce fichier avant la régénération et reporte tes réglages ensuite. Relance `./bootstrap.sh plan`, puis `./bootstrap.sh apply` si le diff correspond à ce que tu souhaites appliquer.
+
+### Python compilé sans `_lzma`
+
+Si `pyenv install` signale `The Python lzma extension was not compiled`, installe `xz` puis recompile la version exacte concernée. Le message `use zlib from xcode sdk` est informatif et concerne une autre bibliothèque.
+
+```bash
+brew install xz
+pyenv install --force 3.14.10
+PYENV_VERSION=3.14.10 pyenv exec python -c 'import lzma; print(lzma.decompress(lzma.compress(b"ok")).decode())'
+```
+
+Remplace `3.14.10` par la version indiquée dans ton avertissement. La recompilation vise une installation existante. Avant de la lancer, assure-toi de pouvoir réinstaller les paquets et recréer les environnements qui en dépendent. Le test doit afficher `ok`.
 
 ### Autres cas
 
